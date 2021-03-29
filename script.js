@@ -9,9 +9,44 @@ var questionFeedback = document.querySelector("#question-feedback");
 var finalScore = document.querySelector("#finalScore");
 
 var numberOfCorrectAnswers = 0;
-var countDownTimer = 15;
+// var countDownTimer = 15;
 
 var currentQuestionIndex = 0;
+
+// timers vars and function 
+var timeEl = document.querySelector(".time");
+var mainEl = document.getElementById("timer");
+// number of seconds var 
+var secondsLeft = 20;
+
+function setTime() {
+    // Sets interval in variable
+    var timerInterval = setInterval(function() {
+      secondsLeft--;
+      timeEl.textContent = secondsLeft + " seconds left till the end of quiz.";
+  
+      if(secondsLeft === 0) {
+        // Stops execution of action at set interval
+        clearInterval(timerInterval);
+        // Calls function to create and append image
+        sendMessage();
+      }
+  
+    }, 1000);
+  }
+  
+  // Function to create and append end game image
+  function sendMessage() {
+    timeEl.textContent = " ";
+    var imgEl = document.createElement("img");
+    imgEl.setAttribute("src", "Game_over.jpeg");  //"images/image_1.jpg
+    mainEl.appendChild(imgEl);
+  
+  }
+  
+  setTime();
+
+
 
 // Array of questions
 var questions = [
@@ -45,7 +80,7 @@ var questions = [
 
     {
         title: "A very useful tool used during development and debugging for printing content to the debugger is:",
-        options: ["Javascript", "terminal/bash", "for loops", "console.log"],
+        choices: ["Javascript", "terminal/bash", "for loops", "console.log"],
         answer: "console.log"
 
     }]
@@ -54,18 +89,21 @@ var questions = [
 finalScore.textContent = "Final Score: " + localStorage.getItem("finalScore");
 
 startQuizBtn.addEventListener("click", function () {
+        
+        setTime();
         showQuestion();
         startScreen.setAttribute("class", "hide");
-        startTimer();
+        // startTimer();
+
 
         })
 
-function startTimer(){
+// function startTimer(){
 
-    setInterval(() => {
-        countDownTimer = countDownTimer -1;
-    }, 1000);
-}
+//     setInterval(() => {
+//         countDownTimer = countDownTimer -1;
+//     }, 1000);
+// }
 
 
 function showQuestion(){
