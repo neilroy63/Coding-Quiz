@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Quiz Challenge</title>
+</head>
+
+<body>
+
+    <!-- heading with timer  -->
+    <header>
+        <h1> Coding Quiz Challenge </h1>
+        <section>
+            <h3 id="timeEl"> Time: <span id="timer">00</span> </h3>
+        </section>
+    </header>
+
+    <!-- main section / containers of the page where all the good stuff happens :) -->
+    <main class="main-container">
+        <!-- article container with intro to the quiz / rules  -->
+        <article id="intro">
+            <p> Welcome! The quiz starts when you click the start button...
+
+            </p>
+        </article>
+
+        <!-- section for the start button  -->
+        <section id="start-contatiner">
+            <button id="start-btn"> Start the Quiz 🤩 </button>
+        </section>
+
+        <!-- section for the scores' (high score and final) display -->
+        <section id="high-score">
+            <h2>High Score</h2>
+            <p>Good effort! Your Final Score is: <span id="final-score"> 0 </span> </p>
+
+        </section>
+
+        <!-- section for the quiz / mutliple choice questions -->
+        <section>
+
+            <section id="question-container">
+
+                <div id="question-title"></div>
+                <div id="question-choices"></div>
+                <div>
+                    <div id="question-feedback"></div>
+                </div>
+
+            </section>
+        </section>
+
+        <!-- user input area / form for initials  -->
+        <section id="form-initials">
+
+            <form action="">
+
+                <textarea name="" id="input-text" cols="25" rows="4" readonly></textarea>
+                <input type="text" name="" id="initials" placeholder="Please enter your initials." maxlength="4"
+                    onkeypress="">
+                <input type="submit" value="Submit" id="">
+            </form>
+
+        </section>
+
+        <!-- section to return to landing page    -->
+
+        <section id="">
+
+            <button id="goback-btn"> Go Back 😏</button>
+
+        </section>
+
+
+    </main>
+
+    <footer>
+        <p>🤗</p>
+    </footer>
+
+    <script src="/script_1.js"></script>
+</body>
+
+</html>

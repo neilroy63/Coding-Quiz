@@ -7,6 +7,57 @@
     align-items: center;
 } */
 
+/* Google font URL import */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap');
+
+:root{
+    background-color: #162221;
+}
+
+*{
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+h2 {
+    color: #ab49f5;
+}
+
+#header {
+    display: flex;
+    justify-content: center;
+}
+
 .time{
     text-align:right;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+#startQuizBtn {
+    background: #d25853;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        min-width: 40rem;
+    }
+}
+    
 }

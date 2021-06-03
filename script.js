@@ -13,11 +13,14 @@ var numberOfCorrectAnswers = 0;
 
 var currentQuestionIndex = 0;
 
+var highScores = [];
+
+
 // timers vars and function 
 var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("timer");
 // number of seconds var 
-var secondsLeft = 20;
+var secondsLeft = 10;
 
 function setTime() {
     // Sets interval in variable
@@ -44,11 +47,7 @@ function setTime() {
   
   }
   
-  setTime();
-
-
-
-// Array of questions
+  // Array of questions
 var questions = [
     {
         title: "Comonly used data types DO NOT include:",
@@ -85,18 +84,14 @@ var questions = [
 
     }]
 
-
 finalScore.textContent = "Final Score: " + localStorage.getItem("finalScore");
 
 startQuizBtn.addEventListener("click", function () {
-        
-        setTime();
-        showQuestion();
-        startScreen.setAttribute("class", "hide");
-        // startTimer();
-
-
-        })
+  setTime();
+  showQuestion();
+  startScreen.setAttribute("class", "hide");
+  // startTimer();
+});
 
 // function startTimer(){
 
@@ -104,7 +99,6 @@ startQuizBtn.addEventListener("click", function () {
 //         countDownTimer = countDownTimer -1;
 //     }, 1000);
 // }
-
 
 function showQuestion(){
 
@@ -120,42 +114,38 @@ function showQuestion(){
 }
 
 function checkAnswer () {
-            console.log(this.textContent)
+  console.log(this.textContent);
 
-            var userAnswer = this.textContent;
-            var answer = questions[currentQuestionIndex].answer;
-            if(userAnswer === answer){
-                questionFeedback.textContent = "Correct!";
-                numberOfCorrectAnswers += 1;
-            }
-            else{
-                questionFeedback.textContent = "Wrong, sorry!";
+  var userAnswer = this.textContent;
+  var answer = questions[currentQuestionIndex].answer;
+  if (userAnswer === answer) {
+    questionFeedback.textContent = "Correct!";
+    numberOfCorrectAnswers += 1;
+  } else {
+    questionFeedback.textContent = "Wrong, sorry!";
+  }
 
-            }
-
-            if(questions.length -1 === currentQuestionIndex){
-                    localStorage.setItem("finalScore", numberOfCorrectAnswers )
-                    showResult();
-            }
-            else {
-                currentQuestionIndex += 1;
-                showQuestion();
-                
-            }
-   }
-
-function showResult(){
-resultsScreen.removeAttribute("class")
-score.textContent = " You got " + numberOfCorrectAnswers + " out of 5";
-questionScreen.setAttribute("class", "hide");
-
+  if (questions.length - 1 === currentQuestionIndex) {
+    
+    showResult();
+  } else {
+    currentQuestionIndex += 1;
+    showQuestion();
+  }
 }
 
-function endGame(){
+function showResult(){
+  resultsScreen.removeAttribute("class");
+  score.textContent = " You got " + numberOfCorrectAnswers + " out of 5";
+  questionScreen.setAttribute("class", "hide");
+  // another function needed maybe 
+  highScores.push(numberOfCorrectAnswers);
+    localStorage.setItem("highScores", highScores);
+}
 
-    if(countDownTimer < 0){
-
-    }
+function endGame() {
+  if (countDownTimer < 0) {
+  }
 }
 
 
