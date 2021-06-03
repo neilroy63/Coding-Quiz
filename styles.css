@@ -27,6 +27,11 @@ h2 {
     justify-content: center;
 }
 
+#finalScore{
+    display: flex;
+    
+}
+
 .time{
     text-align:right;
 }
@@ -60,4 +65,3 @@ img {
     }
 }
     
-}

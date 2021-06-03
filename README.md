@@ -24,5 +24,6 @@ WHEN the game is over
 THEN I can save my initials and my score
 ```
 
+## Issues
 
-
+This remains a work in progress with certain aspects of the application remaining incomplete.
